@@ -18,10 +18,10 @@ $drush si --account-pass='drupaladm1n' --db-url=mysql://dana-trainingDBA:dana-tr
 $drush updb -y &&
 $drush uli &&
 $drush upwd --password="drupaladm1n" admin &&
-chmod 775 /var/drupals/melco/www/sites/default &&
-chmod 775 -R /var/drupals/melco/www/sites/default/files &&
-# rm -rf /var/drupals/melco/www/sites/default/files &&
-# tar -zxvf $build_path/ref_db/melco_files.tar.gz -C /var/drupals/melco/www/sites/default/ &&
+chmod 775 /var/drupals/dana-training/www/sites/default &&
+chmod 775 -R /var/drupals/dana-training/www/sites/default/files &&
+# rm -rf /var/drupals/dana-training/www/sites/default/files &&
+# tar -zxvf $build_path/ref_db/dana-training_files.tar.gz -C /var/drupals/dana-training/www/sites/default/ &&
 $drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
 $drush pm-uninstall $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
 $drush en $(cat $build_path/mods_enabled | tr '\n' ' ') -y &&
