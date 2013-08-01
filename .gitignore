@@ -15,3 +15,6 @@ build/ref_db
 
 # Ignore Vagrant box
 .vagrant/
+
+# Ignore Berksfile.lock file
+Berksfile.lock
