@@ -13,14 +13,18 @@ drush="drush $drush_flags"
 
 build_path=$(dirname "$0")
 
-$drush sql-drop -y &&
-# $drush sqlc < $build_path/ref_db/slaughterhouse/gc011_db.sql -y &&
-# rm -rf /var/drupals/gc011/www/sites/default/files &&
-# tar -zxvf $build_path/ref_db/slaughterhouse/gc011_files.tar.gz -C /var/drupals/gc011/www/sites/default/ &&
-# $drush dis $(cat $build/mods_purge | tr '\n' ' ') -y &&
-# $drush pm-uninstall $(cat $build/mods_purge | tr '\n' ' ') -y &&
-$drush en $(cat $build/mods_enabled | tr '\n' ' ') -y &&
-$drush cc all -y
-# $drush fra -y &&
+$drush si --account-pass='drupaladm1n' --db-url=mysql://melcoDBA:melcoPASS@localhost/melcoDB --sites-subdir=default -y &&
+$drush sqlc --db-url=mysql://melcoDBA:melcoPASS@localhost/melcoDB < /vagrant/build/ref_db/melco_db.sql -vd &&
+$drush updb -y &&
+$drush uli &&
+$drush upwd --password="drupaladm1n" admin &&
+chmod 775 /var/drupals/melco/www/sites/default &&
+chmod 775 -R /var/drupals/melco/www/sites/default/files &&
+rm -rf /var/drupals/melco/www/sites/default/files &&
+tar -zxvf $build_path/ref_db/melco_files.tar.gz -C /var/drupals/melco/www/sites/default/ &&
+$drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
+$drush pm-uninstall $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
+$drush en $(cat $build_path/mods_enabled | tr '\n' ' ') -y &&
+$drush cc all -y &&
 $drush updb -y &&
 $drush cc all -y

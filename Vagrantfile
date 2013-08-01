@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   # The path to the Berksfile to use with Vagrant Berkshelf
   config.berkshelf.enabled = true
-  config.berkshelf.berksfile_path = "./Berksfile" 
+  config.berkshelf.berksfile_path = "./Berksfile"
   # An array of symbols representing groups of cookbook described in the Vagrantfile
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.only = []
@@ -10,19 +10,19 @@ Vagrant.configure("2") do |config|
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
 
-  config.vm.box = "squeeze" 
-  config.vm.box_url = "https://s3.amazonaws.com/wa.milton.aws.bucket01/sqeeze.box" 
+  config.vm.box = "squeeze"
+  config.vm.box_url = "https://s3.amazonaws.com/wa.milton.aws.bucket01/sqeeze.box"
 
-  config.vm.network :private_network, ip: "10.33.36.10" 
+  config.vm.network :private_network, ip: "10.33.36.10"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 2048]
   end
-
+  
   config.ssh.max_tries = 40
   config.ssh.timeout   = 120
-
-  # config.omnibus.chef_version = :latest
+  
+  config.omnibus.chef_version = :latest
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
@@ -32,8 +32,8 @@ Vagrant.configure("2") do |config|
   #   auto_correct: true
 
   project = 'dana-training'
-
-  config.vm.hostname = "promet-#{project}" 
+  
+  # config.vm.hostname = "promet-#{project}"
 
   config.vm.synced_folder ".", "/var/drupals/#{project}", :nfs => true
 
@@ -69,9 +69,9 @@ Vagrant.configure("2") do |config|
         }
       }
     }
-    chef.add_recipe "solo-helper" 
-    chef.add_recipe "drupal::default" 
-    chef.add_recipe "drupal::node_sites" 
-    chef.add_recipe "drupal::drush" 
+    chef.add_recipe "solo-helper"
+    chef.add_recipe "drupal::default"
+    chef.add_recipe "drupal::node_sites"
+    chef.add_recipe "drupal::drush"
   end
 end
