@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Horrible Site Design feature.
+ */
+
+include_once 'horrible_site_design.features.inc';

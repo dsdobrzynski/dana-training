@@ -1,0 +1,17 @@
+name = Horrible Site Design
+description = horrible site design test
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = link
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = body
+features[field_base][] = field_horrible_image
+features[field_base][] = field_url
+features[field_instance][] = node-horrible_site_design-body
+features[field_instance][] = node-horrible_site_design-field_horrible_image
+features[field_instance][] = node-horrible_site_design-field_url
+features[node][] = horrible_site_design
+project path = sites/all/modules/custom/dana_features
