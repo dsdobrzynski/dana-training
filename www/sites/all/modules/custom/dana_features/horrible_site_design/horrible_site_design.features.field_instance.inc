@@ -58,7 +58,7 @@ function horrible_site_design_field_default_field_instances() {
   $field_instances['node-horrible_site_design-field_horrible_image'] = array(
     'bundle' => 'horrible_site_design',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Image of whatever this is. ',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -109,7 +109,7 @@ function horrible_site_design_field_default_field_instances() {
     'bundle' => 'horrible_site_design',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Enter URL for main page of whatever this thing is along with a title relating to this thing. ',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -161,7 +161,9 @@ function horrible_site_design_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Enter URL for main page of whatever this thing is along with a title relating to this thing. ');
   t('Image');
+  t('Image of whatever this is. ');
   t('URL');
 
   return $field_instances;
