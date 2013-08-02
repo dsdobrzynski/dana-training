@@ -15,7 +15,7 @@ function horrible_site_design_field_default_field_instances() {
     'bundle' => 'horrible_site_design',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Why is this site design so horrible?',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -37,13 +37,14 @@ function horrible_site_design_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -163,6 +164,7 @@ function horrible_site_design_field_default_field_instances() {
   t('Body');
   t('Image');
   t('URL');
+  t('Why is this site design so horrible?');
 
   return $field_instances;
 }

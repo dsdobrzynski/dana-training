@@ -2,6 +2,7 @@ name = Horrible Site Design
 description = horrible site design test
 core = 7.x
 package = Features
+php = 5.2.4
 dependencies[] = features
 dependencies[] = image
 dependencies[] = link
